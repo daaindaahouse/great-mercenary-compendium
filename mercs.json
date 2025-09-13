@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Kirsten",
+    "type": "melee",
+    "page": "kirsten.html"
+  },
+  {
+    "name": "Lola",
+    "type": "ranged",
+    "page": "lola.html"
+  }
+]
