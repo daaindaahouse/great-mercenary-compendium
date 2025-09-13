@@ -21,9 +21,8 @@
       border-radius: 8px;
       cursor: pointer;
       transition: opacity 0.3s, background-color 0.3s;
-      background-color: #4CAF50;
+      background-color: #2196F3;
       color: white;
-      text-decoration: none;
     }
     .dimmed {
       opacity: 0.4;
@@ -38,6 +37,20 @@
     select {
       padding: 8px 12px;
       font-size: 14px;
+    }
+    #merc-details {
+      margin-top: 30px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #f9f9f9;
+      display: none; /* hidden until merc is selected */
+    }
+    #merc-details h2 {
+      margin-top: 0;
     }
   </style>
 </head>
@@ -56,25 +69,57 @@
 
   <div id="merc-container"></div>
 
+  <div id="merc-details">
+    <h2 id="merc-name"></h2>
+    <p><strong>Type:</strong> <span id="merc-type"></span></p>
+    <p><strong>Attack:</strong> <span id="merc-attack"></span></p>
+    <p><strong>Defense:</strong> <span id="merc-defense"></span></p>
+    <p id="merc-description"></p>
+  </div>
+
   <script>
     const filterSelect = document.getElementById('typeFilter');
     const mercContainer = document.getElementById('merc-container');
+    const mercDetails = document.getElementById('merc-details');
+    const mercName = document.getElementById('merc-name');
+    const mercType = document.getElementById('merc-type');
+    const mercAttack = document.getElementById('merc-attack');
+    const mercDefense = document.getElementById('merc-defense');
+    const mercDescription = document.getElementById('merc-description');
+
     let mercButtons = [];
+    let mercData = [];
 
     // Load mercs.json
     fetch('mercs.json')
       .then(response => response.json())
       .then(mercs => {
+        mercData = mercs;
         mercs.forEach(merc => {
-          const btn = document.createElement('a');
-          btn.textContent = `${merc.name} (${merc.type.charAt(0).toUpperCase() + merc.type.slice(1)})`;
-          btn.href = merc.page;
+          const btn = document.createElement('button');
+          btn.textContent = merc.name;
           btn.classList.add('merc-button');
           btn.setAttribute('data-type', merc.type);
+
+          // When clicked, display merc details
+          btn.addEventListener('click', () => {
+            showMercDetails(merc);
+          });
+
           mercContainer.appendChild(btn);
         });
         mercButtons = document.querySelectorAll('.merc-button');
       });
+
+    // Show merc details in panel
+    function showMercDetails(merc) {
+      mercName.textContent = merc.name;
+      mercType.textContent = merc.type.charAt(0).toUpperCase() + merc.type.slice(1);
+      mercAttack.textContent = merc.attack;
+      mercDefense.textContent = merc.defense;
+      mercDescription.textContent = merc.description;
+      mercDetails.style.display = 'block';
+    }
 
     // Filtering logic
     filterSelect.addEventListener('change', () => {
