@@ -23,6 +23,7 @@
       transition: opacity 0.3s, background-color 0.3s;
       background-color: #4CAF50;
       color: white;
+      text-decoration: none;
     }
     .dimmed {
       opacity: 0.4;
@@ -53,10 +54,45 @@
     </select>
   </div>
 
-  <div id="merc-container">
-    <button class="merc-button" data-type="melee">Axeman (Melee)</button>
-    <button class="merc-button" data-type="ranged">Archer (Ranged)</button>
-  </div>
+  <div id="merc-container"></div>
 
   <script>
-    const 
+    const filterSelect = document.getElementById('typeFilter');
+    const mercContainer = document.getElementById('merc-container');
+    let mercButtons = [];
+
+    // Load mercs.json
+    fetch('mercs.json')
+      .then(response => response.json())
+      .then(mercs => {
+        mercs.forEach(merc => {
+          const btn = document.createElement('a');
+          btn.textContent = `${merc.name} (${merc.type.charAt(0).toUpperCase() + merc.type.slice(1)})`;
+          btn.href = merc.page;
+          btn.classList.add('merc-button');
+          btn.setAttribute('data-type', merc.type);
+          mercContainer.appendChild(btn);
+        });
+        mercButtons = document.querySelectorAll('.merc-button');
+      });
+
+    // Filtering logic
+    filterSelect.addEventListener('change', () => {
+      const selected = filterSelect.value;
+      mercButtons.forEach(button => {
+        const type = button.getAttribute('data-type');
+        if (selected === 'all') {
+          button.classList.remove('dimmed', 'highlight');
+        } else if (type === selected) {
+          button.classList.add('highlight');
+          button.classList.remove('dimmed');
+        } else {
+          button.classList.add('dimmed');
+          button.classList.remove('highlight');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
