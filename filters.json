@@ -1,0 +1,5 @@
+{
+  "AttackType": ["Melee", "Ranged"],
+  "Faction": ["Peacekeeper", "Freemen", "Syndicate"],
+  "Subclass": ["Striker", "Sentinel", "Replica"]
+}

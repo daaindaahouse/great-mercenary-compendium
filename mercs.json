@@ -1,0 +1,75 @@
+[
+  {
+    "name": "Scarlett",
+    "attackType": "Melee",
+    "faction": "Syndicate",
+    "subclass": "Sentinel",
+    "description": "Did you know I used to be called Goliath?",
+    "level_growth": {
+      "health": [ 600, 620, 641, 663, 685, 708, 730, 751, 772, 794, 816, 838, 859, 880, 901, 922, 943, 964, 985, 1006, 1027, 1048, 1069, 1090, 1111, 1132, 1153, 1174, 1195, 1216, 1237 ],
+      "attack": [ 75, 77, 79, 81, 83, 85, 87, 89, 91, 93, 95, 97, 99, 101, 103, 105, 107, 109, 111, 113, 115, 117, 119, 121, 123, 125, 127, 129, 131, 133, 135 ]
+    },
+    "reboot_growth": {
+      "health": [ 0, 60, 120, 180, 240, 300, 360, 420 ],
+      "attack": [ 0, 12, 24, 36, 48, 60, 72, 84 ]
+    },
+    "skill_1_text": "Takes 10% less damage from all sources.",
+    "skill_2_text": "When an ally is defeated, gain a 100 health shield.",
+    "summary": "",
+    "tips_and_tricks": ""
+  },
+  {
+    "name": "Lola",
+    "attackType": "Ranged",
+    "faction": "Peacekeeper",
+    "subclass": "Striker",
+    "description": "Put me on your squad or suffer.",
+    "level_growth": {
+      "health": [ 500, 520, 541, 563, 585, 608, 630, 651, 672, 694, 716, 738, 759, 780, 801, 822, 843, 864, 885, 906, 927, 948, 969, 990, 1011, 1032, 1053, 1074, 1095, 1116, 1137 ],
+      "attack": [ 80, 83, 86, 89, 92, 95, 98, 101, 104, 107, 110, 113, 116, 119, 122, 125, 128, 131, 134, 137, 140, 143, 146, 149, 152, 155, 158, 161, 164, 167, 170 ]
+    },
+    "reboot_growth": {
+      "health": [ 0, 50, 100, 150, 200, 250, 300, 350 ],
+      "attack": [ 0, 10, 20, 30, 40, 50, 60, 70 ]
+    },
+    "skill_1_text": "Set range enemy's health to 5% of Lola's base health",
+    "skill_1_tooltip": "This happens before Lola's health receives any buffs",
+    "skill_2_text": "Ally appears: Gives Force Shield to all allies in Lola's row",
+    "skill_3_text": "Ally Force Shield expires: Deal {skill_3_value} damage to all enemies",
+    "skill_3_growth_level": [ 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200 ],
+    "skill_3_growth_reboot": [ 0, 20, 40, 60, 80, 100, 120, 140 ],
+    "summary": "Ranged removal specialist",
+    "tips_and_tricks": "Play after their Lola!"
+  },
+  {
+    "name": "Mitsuki",
+    "attackType": "Melee",
+    "faction": "Freemen",
+    "subclass": "Replica",
+    "description": "Plenty of me to go around.",
+    "level_growth": {
+      "health": [ 450, 470, 491, 513, 535, 558, 580, 601, 622, 644, 666, 688, 709, 730, 751, 772, 793, 814, 835, 856, 877, 898, 919, 940, 961, 982, 1003, 1024, 1045, 1066, 1087 ],
+      "attack": [ 90, 93, 96, 99, 102, 105, 108, 111, 114, 117, 120, 123, 126, 129, 132, 135, 138, 141, 144, 147, 150, 153, 156, 159, 162, 165, 168, 171, 174, 177, 180 ]
+    },
+    "reboot_growth": {
+      "health": [ 0, 45, 90, 135, 180, 225, 270, 315 ],
+      "attack": [ 0, 15, 30, 45, 60, 75, 90, 105 ]
+    },
+    "skill_1_text": "Summon a clone with 50% of Mitsuki's stats.",
+    "skill_2_text": "When a clone is defeated, deal 80 damage to the attacker.",
+    "skill_3_text": "When Mitsuki is defeated, all clones are defeated.",
+    "skill_4_text": "For every active clone, Mitsuki gains 5% attack speed.",
+    "summary": "",
+    "tips_and_tricks": ""
+  },
+  { "name": "PK-01", "attackType": "Ranged", "faction": "Peacekeeper", "subclass": "Striker", "description": "Standard issue Peacekeeper unit.", "level_growth": { "health": [ 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550, 560, 570, 580, 590, 600 ], "attack": [ 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80 ] }, "reboot_growth": { "health": [ 0, 30, 60, 90, 120, 150, 180, 210 ], "attack": [ 0, 5, 10, 15, 20, 25, 30, 35 ] }, "summary": "", "tips_and_tricks": "" },
+  { "name": "PK-02", "attackType": "Melee", "faction": "Peacekeeper", "subclass": "Replica", "description": "Standard issue Peacekeeper unit.", "level_growth": { "health": [ 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550, 560, 570, 580, 590, 600 ], "attack": [ 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80 ] }, "reboot_growth": { "health": [ 0, 30, 60, 90, 120, 150, 180, 210 ], "attack": [ 0, 5, 10, 15, 20, 25, 30, 35 ] }, "summary": "", "tips_and_tricks": "" },
+  { "name": "PK-03", "attackType": "Ranged", "faction": "Peacekeeper", "subclass": "Striker", "description": "Standard issue Peacekeeper unit.", "level_growth": { "health": [ 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550, 560, 570, 580, 590, 600 ], "attack": [ 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80 ] }, "reboot_growth": { "health": [ 0, 30, 60, 90, 120, 150, 180, 210 ], "attack": [ 0, 5, 10, 15, 20, 25, 30, 35 ] }, "summary": "", "tips_and_tricks": "" },
+  { "name": "PK-04", "attackType": "Ranged", "faction": "Peacekeeper", "subclass": "Sentinel", "description": "Standard issue Peacekeeper unit.", "level_growth": { "health": [ 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550, 560, 570, 580, 590, 600 ], "attack": [ 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80 ] }, "reboot_growth": { "health": [ 0, 30, 60, 90, 120, 150, 180, 210 ], "attack": [ 0, 5, 10, 15, 20, 25, 30, 35 ] }, "summary": "", "tips_and_tricks": "" },
+  { "name": "PK-05", "attackType": "Ranged", "faction": "Peacekeeper", "subclass": "Sentinel", "description": "Standard issue Peacekeeper unit.", "level_growth": { "health": [ 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550, 560, 570, 580, 590, 600 ], "attack": [ 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80 ] }, "reboot_growth": { "health": [ 0, 30, 60, 90, 120, 150, 180, 210 ], "attack": [ 0, 5, 10, 15, 20, 25, 30, 35 ] }, "summary": "", "tips_and_tricks": "" },
+  { "name": "PK-06", "attackType": "Melee", "faction": "Peacekeeper", "subclass": "Striker", "description": "Standard issue Peacekeeper unit.", "level_growth": { "health": [ 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550, 560, 570, 580, 590, 600 ], "attack": [ 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80 ] }, "reboot_growth": { "health": [ 0, 30, 60, 90, 120, 150, 180, 210 ], "attack": [ 0, 5, 10, 15, 20, 25, 30, 35 ] }, "summary": "", "tips_and_tricks": "" },
+  { "name": "PK-07", "attackType": "Ranged", "faction": "Peacekeeper", "subclass": "Striker", "description": "Standard issue Peacekeeper unit.", "level_growth": { "health": [ 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550, 560, 570, 580, 590, 600 ], "attack": [ 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80 ] }, "reboot_growth": { "health": [ 0, 30, 60, 90, 120, 150, 180, 210 ], "attack": [ 0, 5, 10, 15, 20, 25, 30, 35 ] }, "summary": "", "tips_and_tricks": "" },
+  { "name": "PK-08", "attackType": "Ranged", "faction": "Peacekeeper", "subclass": "Replica", "description": "Standard issue Peacekeeper unit.", "level_growth": { "health": [ 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550, 560, 570, 580, 590, 600 ], "attack": [ 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80 ] }, "reboot_growth": { "health": [ 0, 30, 60, 90, 120, 150, 180, 210 ], "attack": [ 0, 5, 10, 15, 20, 25, 30, 35 ] }, "summary": "", "tips_and_tricks": "" },
+  { "name": "PK-09", "attackType": "Melee", "faction": "Peacekeeper", "subclass": "Sentinel", "description": "Standard issue Peacekeeper unit.", "level_growth": { "health": [ 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550, 560, 570, 580, 590, 600 ], "attack": [ 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80 ] }, "reboot_growth": { "health": [ 0, 30, 60, 90, 120, 150, 180, 210 ], "attack": [ 0, 5, 10, 15, 20, 25, 30, 35 ] }, "summary": "", "tips_and_tricks": "" },
+  { "name": "PK-10", "attackType": "Ranged", "faction": "Peacekeeper", "subclass": "Sentinel", "description": "Standard issue Peacekeeper unit.", "level_growth": { "health": [ 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550, 560, 570, 580, 590, 600 ], "attack": [ 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80 ] }, "reboot_growth": { "health": [ 0, 30, 60, 90, 120, 150, 180, 210 ], "attack": [ 0, 5, 10, 15, 20, 25, 30, 35 ] }, "summary": "", "tips_and_tricks": "" }
+]

@@ -3,141 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <title>The Great Mercenary Compendium</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-    }
-    h1 {
-      margin-bottom: 30px;
-    }
-    .merc-button {
-      display: inline-block;
-      margin: 10px;
-      padding: 15px 25px;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: opacity 0.3s, background-color 0.3s;
-      background-color: #2196F3;
-      color: white;
-    }
-    .dimmed {
-      opacity: 0.4;
-    }
-    .highlight {
-      opacity: 1;
-      background-color: #2196F3;
-    }
-    #filter-container {
-      margin-bottom: 20px;
-    }
-    select {
-      padding: 8px 12px;
-      font-size: 14px;
-    }
-    #merc-details {
-      margin-top: 30px;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 12px;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-      background-color: #f9f9f9;
-      display: none; /* hidden until merc is selected */
-    }
-    #merc-details h2 {
-      margin-top: 0;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <h1>The Great Mercenary Compendium</h1>
 
-  <div id="filter-container">
-    <label for="typeFilter">Type:</label>
-    <select id="typeFilter">
-      <option value="all">All</option>
-      <option value="melee">Melee</option>
-      <option value="ranged">Ranged</option>
-    </select>
+<div class="filters">
+  <label for="attackType">Attack Type:</label>
+  <select id="attackType"></select>
+
+  <label for="subclass">Subclass:</label>
+  <select id="subclass"></select>
+
+  <button id="resetFilters">Reset Filters</button>
+</div>
+
+<div class="factions-container">
+  <div class="faction-box" id="Peacekeeper">
+    <h2>Peacekeepers</h2>
+    <div class="merc-list" id="list-Peacekeeper"></div>
   </div>
 
-  <div id="merc-container"></div>
-
-  <div id="merc-details">
-    <h2 id="merc-name"></h2>
-    <p><strong>Type:</strong> <span id="merc-type"></span></p>
-    <p><strong>Attack:</strong> <span id="merc-attack"></span></p>
-    <p><strong>Defense:</strong> <span id="merc-defense"></span></p>
-    <p id="merc-description"></p>
+  <div class="faction-box" id="Freemen">
+    <h2>Freemen</h2>
+    <div class="merc-list" id="list-Freemen"></div>
   </div>
 
-  <script>
-    const filterSelect = document.getElementById('typeFilter');
-    const mercContainer = document.getElementById('merc-container');
-    const mercDetails = document.getElementById('merc-details');
-    const mercName = document.getElementById('merc-name');
-    const mercType = document.getElementById('merc-type');
-    const mercAttack = document.getElementById('merc-attack');
-    const mercDefense = document.getElementById('merc-defense');
-    const mercDescription = document.getElementById('merc-description');
+  <div class="faction-box" id="Syndicate">
+    <h2>Syndicate</h2>
+    <div class="merc-list" id="list-Syndicate"></div>
+  </div>
+</div>
 
-    let mercButtons = [];
-    let mercData = [];
+  <div class="mercenary-list" id="mercList"></div>
 
-    // Load mercs.json
-    fetch('mercs.json')
-      .then(response => response.json())
-      .then(mercs => {
-        mercData = mercs;
-        mercs.forEach(merc => {
-          const btn = document.createElement('button');
-          btn.textContent = merc.name;
-          btn.classList.add('merc-button');
-          btn.setAttribute('data-type', merc.type);
+  <div class="mercenary-info" id="mercInfo">
+    <div class="merc-info-grid">
+      <div class="merc-info-left">
+        <h2 id="mercName">Select a mercenary</h2>
+        <label for="reboot">Reboot:</label>
+        <select id="reboot"></select>
+        <label for="level">Level:</label>
+        <select id="level"></select>
+        <div id="stats"></div>
+        <div id="skillsContainer"></div>
+      </div>
+      <div class="merc-info-right">
+        <h3>Description</h3>
+        <p id="mercDescription"></p>
+        <h3>Summary</h3>
+        <p id="mercSummary"></p>
+        <h3>Tips and Tricks</h3>
+        <p id="mercTips"></p>
+      </div>
+    </div>
+  </div>
 
-          // When clicked, display merc details
-          btn.addEventListener('click', () => {
-            showMercDetails(merc);
-          });
-
-          mercContainer.appendChild(btn);
-        });
-        mercButtons = document.querySelectorAll('.merc-button');
-      });
-
-    // Show merc details in panel
-    function showMercDetails(merc) {
-      mercName.textContent = merc.name;
-      mercType.textContent = merc.type.charAt(0).toUpperCase() + merc.type.slice(1);
-      mercAttack.textContent = merc.attack;
-      mercDefense.textContent = merc.defense;
-      mercDescription.textContent = merc.description;
-      mercDetails.style.display = 'block';
-    }
-
-    // Filtering logic
-    filterSelect.addEventListener('change', () => {
-      const selected = filterSelect.value;
-      mercButtons.forEach(button => {
-        const type = button.getAttribute('data-type');
-        if (selected === 'all') {
-          button.classList.remove('dimmed', 'highlight');
-        } else if (type === selected) {
-          button.classList.add('highlight');
-          button.classList.remove('dimmed');
-        } else {
-          button.classList.add('dimmed');
-          button.classList.remove('highlight');
-        }
-      });
-    });
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>

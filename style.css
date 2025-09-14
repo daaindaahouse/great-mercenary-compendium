@@ -1,0 +1,231 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+  color: #333;
+  font-size: 14px;
+}
+
+h1 {
+  text-align: center;
+  margin: 15px 0;
+  font-size: 1.8em;
+  color: #2c3e50;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px auto;
+  padding: 8px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  max-width: 700px;
+}
+
+.filters label {
+  font-weight: bold;
+  margin-right: 4px;
+  font-size: 0.9em;
+}
+
+.filters select,
+.filters button {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.filters select:focus,
+.filters button:hover {
+  border-color: #4CAF50;
+  box-shadow: 0 0 4px rgba(76, 175, 80, 0.3);
+}
+
+.merc-button {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s, transform 0.1s;
+  width: calc(33.333% - 8px);
+  margin: 4px;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.merc-button:hover {
+  transform: translateY(-1px);
+}
+
+.merc-button.dimmed {
+  opacity: 0.4;
+}
+
+.mercenary-info {
+  max-width: 1600px;
+  margin: 20px auto;
+  padding: 15px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: none; /* Hidden by default */
+}
+
+.merc-info-grid {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 20px;
+}
+
+.merc-info-left h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #2c3e50;
+}
+
+.merc-info-left label {
+  display: block;
+  margin: 8px 0 4px;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.merc-info-left select {
+  width: 100%;
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#stats p {
+  margin: 4px 0;
+  padding: 6px 8px;
+  background: #f0f4f7;
+  border-radius: 5px;
+  font-size: 0.95em;
+}
+
+.merc-info-right h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 1.2em;
+  color: #333;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 4px;
+}
+
+.merc-info-right p {
+  margin: 0 0 15px 0;
+  line-height: 1.5;
+}
+
+.skill {
+  margin: 12px 0;
+  padding: 8px;
+  background: #f9f9f9;
+  border-left: 3px solid #4CAF50;
+}
+
+.skill h3 {
+  margin: 0 0 4px 0;
+  font-size: 1.1em;
+  color: #333;
+  border-bottom: none;
+}
+
+.skill p {
+  margin: 0;
+  font-size: 0.9em;
+  position: relative;
+}
+
+.skill p.has-tooltip {
+  border-bottom: 1px dotted #666;
+  cursor: help;
+}
+
+.skill p.has-tooltip .tooltip-text {
+  visibility: hidden;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 200px;
+  font-size: 0.9em;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.skill p.has-tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.factions-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.faction-box {
+  flex: 1;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+  padding: 10px;
+  text-align: center;
+}
+
+.faction-box h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.4em;
+  color: #2c3e50;
+}
+
+/* Peacekeeper = blue */
+.merc-button.Peacekeeper {
+  border: 1px solid #2196F3;
+  background-color: #E3F2FD;
+}
+.merc-button.Peacekeeper:hover {
+  background-color: #BBDEFB;
+}
+
+/* Freemen = green */
+.merc-button.Freemen {
+  border: 1px solid #4CAF50;
+  background-color: #E8F5E9;
+}
+.merc-button.Freemen:hover {
+  background-color: #C8E6C9;
+}
+
+/* Syndicate = red */
+.merc-button.Syndicate {
+  border: 1px solid #F44336;
+  background-color: #FFEBEE;
+}
+.merc-button.Syndicate:hover {
+  background-color: #FFCDD2;
+}
