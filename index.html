@@ -41,10 +41,16 @@
     <div class="merc-info-grid">
       <div class="merc-info-left">
         <h2 id="mercName">Select a mercenary</h2>
-        <label for="reboot">Reboot:</label>
-        <select id="reboot"></select>
-        <label for="level">Level:</label>
-        <select id="level"></select>
+        <div class="level-controls">
+          <div>
+            <label for="reboot">Reboot:</label>
+            <select id="reboot"></select>
+          </div>
+          <div>
+            <label for="level">Level:</label>
+            <select id="level"></select>
+          </div>
+        </div>
         <div id="stats"></div>
         <div id="skillsContainer"></div>
       </div>
@@ -55,6 +61,8 @@
         <p id="mercSummary"></p>
         <h3>Tips and Tricks</h3>
         <p id="mercTips"></p>
+        <h3 id="relationshipHeader" style="display: none">Relationship Information</h3>
+        <p id="mercRelationships"></p>
       </div>
     </div>
   </div>

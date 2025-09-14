@@ -1,12 +1,15 @@
 let mercenaries = [];
-let filters = { attackType: "", faction: "", subclass: "" };
+let filters = { attackType: "", subclass: "" };
 
 async function loadFilters() {
   const response = await fetch("filters.json");
   const filterData = await response.json();
 
+  // Skip the Faction filter since we use boxes instead
+  const relevantFilters = Object.keys(filterData).filter(key => key !== "Faction");
+
   // For each key in filters.json (e.g. "AttackType"), map to the DOM id (attackType)
-  for (let key of Object.keys(filterData)) {
+  for (let key of relevantFilters) {
     const prop = key.charAt(0).toLowerCase() + key.slice(1); // "AttackType" -> "attackType"
     const select = document.getElementById(prop);
 
@@ -32,7 +35,7 @@ async function loadFilters() {
   const resetBtn = document.getElementById("resetFilters");
   if (resetBtn) {
     resetBtn.addEventListener("click", () => {
-      filters = { attackType: "", faction: "", subclass: "" };
+      filters = { attackType: "", subclass: "" };
       document.querySelectorAll(".filters select").forEach(sel => sel.value = "");
       applyFilters();
     });
@@ -136,6 +139,17 @@ function showMerc(merc) {
   document.getElementById("mercDescription").textContent = merc.description || "";
   document.getElementById("mercSummary").textContent = merc.summary || "";
   document.getElementById("mercTips").textContent = merc.tips_and_tricks || "";
+  
+  // Handle relationship information
+  const relationshipHeader = document.getElementById("relationshipHeader");
+  const relationshipText = document.getElementById("mercRelationships");
+  if (merc.relationship_description) {
+    relationshipHeader.style.display = "block";
+    relationshipText.textContent = merc.relationship_description;
+  } else {
+    relationshipHeader.style.display = "none";
+    relationshipText.textContent = "";
+  }
 
   populateDropdowns(7, 31);
 
@@ -157,6 +171,7 @@ function showMerc(merc) {
     const skillsContainer = document.getElementById("skillsContainer");
     skillsContainer.innerHTML = ""; // Clear previous skills
 
+    // Add skills
     for (let i = 1; i <= 4; i++) { // Check for up to 4 skills
       if (merc[`skill_${i}_text`]) {
         let skillText = merc[`skill_${i}_text`];
@@ -197,6 +212,22 @@ function showMerc(merc) {
         skillDiv.appendChild(skillPara);
         skillsContainer.appendChild(skillDiv);
       }
+    }
+
+    // Add outfit information if it exists
+    if (merc.outfit_text) {
+      const outfitDiv = document.createElement("div");
+      outfitDiv.className = "outfit";
+
+      const outfitTitle = document.createElement("h3");
+      outfitTitle.textContent = "Outfit";
+
+      const outfitPara = document.createElement("p");
+      outfitPara.textContent = merc.outfit_text;
+
+      outfitDiv.appendChild(outfitTitle);
+      outfitDiv.appendChild(outfitPara);
+      skillsContainer.appendChild(outfitDiv);
     }
   }
 

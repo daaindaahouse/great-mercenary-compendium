@@ -13,8 +13,9 @@
       "health": [ 0, 60, 120, 180, 240, 300, 360, 420 ],
       "attack": [ 0, 12, 24, 36, 48, 60, 72, 84 ]
     },
-    "skill_1_text": "Takes 10% less damage from all sources.",
-    "skill_2_text": "When an ally is defeated, gain a 100 health shield.",
+    "skill_1_text": "Ally appears: Deal {skill_1_value} damage to all enemies.",
+    "skill_1_growth_level": [ 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200 ],
+    "skill_1_growth_reboot": [ 0, 20, 40, 60, 80, 100, 120, 140 ],
     "summary": "",
     "tips_and_tricks": ""
   },
@@ -38,8 +39,10 @@
     "skill_3_text": "Ally Force Shield expires: Deal {skill_3_value} damage to all enemies",
     "skill_3_growth_level": [ 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200 ],
     "skill_3_growth_reboot": [ 0, 20, 40, 60, 80, 100, 120, 140 ],
+    "outfit_text": "When an enemy ranged mercenary dies, grant Force Shield to two random allies",
     "summary": "Ranged removal specialist",
-    "tips_and_tricks": "Play after their Lola!"
+    "tips_and_tricks": "Play after their Lola!",
+    "relationship_description": "Some tips on Lola relationship and outfit ability"
   },
   {
     "name": "Mitsuki",

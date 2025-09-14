@@ -100,12 +100,21 @@ h1 {
   font-size: 0.9em;
 }
 
+.merc-info-left .level-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.merc-info-left .level-controls > div {
+  flex: 1;
+}
+
 .merc-info-left select {
   width: 100%;
   padding: 5px 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-bottom: 10px;
 }
 
 #stats p {
@@ -135,6 +144,13 @@ h1 {
   padding: 8px;
   background: #f9f9f9;
   border-left: 3px solid #4CAF50;
+}
+
+.outfit {
+  margin: 12px 0;
+  padding: 8px;
+  background: #f9f9f9;
+  border-left: 3px solid #F44336;
 }
 
 .skill h3 {
