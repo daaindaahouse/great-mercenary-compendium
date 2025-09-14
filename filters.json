@@ -1,5 +1,6 @@
 {
   "AttackType": ["Melee", "Ranged"],
   "Faction": ["Peacekeeper", "Freemen", "Syndicate"],
-  "Subclass": ["Striker", "Sentinel", "Replica"]
+  "Subclass": ["Striker", "Sentinel", "Replica"],
+  "Tags": ["Core", "AOE", "Removal", "Board defense", "Commander defense", "Commander offense"]
 }

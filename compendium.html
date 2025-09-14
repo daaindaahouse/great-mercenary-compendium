@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Great Mercenary Compendium</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="index.html" class="back-button">Back to home</a>
+  <h1>The Great Mercenary Compendium</h1>
+
+  <div class="filters-container">
+    <div class="filters">
+      <label for="attackType">Attack Type:</label>
+      <select id="attackType"></select>
+
+      <label for="subclass">Subclass:</label>
+      <select id="subclass"></select>
+
+      <button id="resetFilters">Reset Filters</button>
+    </div>
+
+    <div class="tag-filters" id="tagFiltersContainer">
+      <!-- Tag buttons will be rendered here dynamically from filters.json -->
+    </div>
+  </div>
+
+<div class="factions-container">
+  <div class="faction-box" id="Peacekeeper">
+    <h2>Peacekeepers</h2>
+    <div class="merc-list" id="list-Peacekeeper"></div>
+  </div>
+
+  <div class="faction-box" id="Freemen">
+    <h2>Freemen</h2>
+    <div class="merc-list" id="list-Freemen"></div>
+  </div>
+
+  <div class="faction-box" id="Syndicate">
+    <h2>Syndicate</h2>
+    <div class="merc-list" id="list-Syndicate"></div>
+  </div>
+</div>
+
+  <div class="mercenary-list" id="mercList"></div>
+
+  <div class="mercenary-info" id="mercInfo">
+    <div class="merc-info-grid">
+      <div class="merc-info-left">
+        <h2 id="mercName">Select a mercenary</h2>
+        <div class="level-controls">
+          <div>
+            <label for="reboot">Reboot:</label>
+            <select id="reboot"></select>
+          </div>
+          <div>
+            <label for="level">Level:</label>
+            <select id="level"></select>
+          </div>
+        </div>
+        <div id="stats"></div>
+        <div id="skillsContainer"></div>
+      </div>
+      <div class="merc-info-right">
+        <h3>Description</h3>
+        <p id="mercDescription"></p>
+        <h3>Summary</h3>
+        <p id="mercSummary"></p>
+        <h3>Tips and Tricks</h3>
+        <p id="mercTips"></p>
+        <h3 id="relationshipHeader" style="display: none">Relationship Information</h3>
+        <p id="mercRelationships"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

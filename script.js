@@ -1,12 +1,69 @@
 let mercenaries = [];
 let filters = { attackType: "", subclass: "" };
+let selectedTags = new Set();
+
+// Render tag buttons from filters.json Tags array into #tagFiltersContainer
+async function renderTagButtons(filterData) {
+  const container = document.getElementById('tagFiltersContainer');
+  container.innerHTML = '';
+
+  // Control button: Clear Filters (removes all selected tags)
+  const clearBtn = document.createElement('button');
+  clearBtn.id = 'clearFilters';
+  clearBtn.className = 'tag-button control';
+  clearBtn.textContent = 'Clear Filters';
+  container.appendChild(clearBtn);
+
+  const tags = filterData.Tags || [];
+  tags.forEach(tag => {
+    const btn = document.createElement('button');
+    // start unlit (no 'active' class). User toggles to allow/tag-on
+    btn.className = 'tag-button';
+    btn.dataset.tag = tag;
+    btn.textContent = tag;
+    container.appendChild(btn);
+  });
+
+  // Wire events
+  document.querySelectorAll('#tagFiltersContainer .tag-button').forEach(button => {
+    if (button.classList.contains('control')) return;
+    button.addEventListener('click', () => {
+      const tag = button.dataset.tag;
+      const nowActive = button.classList.toggle('active');
+        if (nowActive) {
+          // active (lit) => tag is allowed, add to selectedTags
+          selectedTags.add(tag);
+        } else {
+          // unlit => tag is not allowed, remove from selectedTags
+          selectedTags.delete(tag);
+        }
+      applyFilters();
+    });
+  });
+
+  document.getElementById('clearFilters').addEventListener('click', () => {
+    // Clear Filters: mark all tags unlit (no tags allowed)
+    selectedTags.clear();
+    document.querySelectorAll('#tagFiltersContainer .tag-button:not(.control)').forEach(b => {
+      b.classList.remove('active');
+    });
+    applyFilters();
+  });
+
+  // By default, no tags are selected (no tag-based filtering).
+  selectedTags.clear();
+  // Do not auto-apply filters here; caller will call applyFilters after load.
+}
 
 async function loadFilters() {
   const response = await fetch("filters.json");
   const filterData = await response.json();
 
-  // Skip the Faction filter since we use boxes instead
-  const relevantFilters = Object.keys(filterData).filter(key => key !== "Faction");
+  // Skip the Faction and Tags filters since we use boxes and dynamic tag buttons
+  const relevantFilters = Object.keys(filterData).filter(key => key !== "Faction" && key !== "Tags");
+
+  // Render tag buttons (dynamic)
+  await renderTagButtons(filterData);
 
   // For each key in filters.json (e.g. "AttackType"), map to the DOM id (attackType)
   for (let key of relevantFilters) {
@@ -58,6 +115,8 @@ async function loadMercs() {
   mercenaries.forEach(merc => {
     const button = document.createElement("button");
     button.textContent = merc.name;
+    // store merc name on the DOM element for robust lookup
+    button.dataset.merc = merc.name;
     button.classList.add("merc-button", merc.faction); // faction class for color
     button.addEventListener("click", () => showMerc(merc));
 
@@ -71,17 +130,26 @@ async function loadMercs() {
 }
 
 function applyFilters() {
-  // Apply dimming based on attackType + subclass
+  // Apply dimming based on attackType + subclass + tags
   document.querySelectorAll(".merc-button").forEach((button) => {
-    // Find the mercenary by name
-    const merc = mercenaries.find(m => m.name === button.textContent);
+  // Find the mercenary by data attribute (more robust than textContent)
+  const mercName = button.dataset.merc || button.textContent;
+  const merc = mercenaries.find(m => m.name === mercName);
     if (!merc) return;
 
-    const matches =
+    const basicMatches =
       (!filters.attackType || merc.attackType === filters.attackType) &&
       (!filters.subclass || merc.subclass === filters.subclass);
 
-    button.classList.toggle("dimmed", !matches);
+    // Handle tag filtering (AND semantics)
+    let tagMatches = true;
+    if (selectedTags.size > 0) {
+      const mercTags = merc.tags || [];
+      // selectedTags must be a subset of mercTags
+      tagMatches = Array.from(selectedTags).every(t => mercTags.includes(t));
+    }
+
+    button.classList.toggle("dimmed", !(basicMatches && tagMatches));
   });
 }
 
@@ -183,8 +251,8 @@ function showMerc(merc) {
           const rebootGrowth = merc[`skill_${i}_growth_reboot`] || [];
           const levelValue = levelGrowth[level - 1] || 0;
           const rebootValue = rebootGrowth[reboot] || 0;
-          const totalValue = levelValue + rebootValue;
-          skillText = skillText.replace(placeholder, Math.round(totalValue));
+          const totalValue = Math.round(levelValue + rebootValue);
+          skillText = skillText.replace(placeholder, `<strong>${totalValue}</strong>`);
         }
 
         // Create skill elements
@@ -202,10 +270,10 @@ function showMerc(merc) {
           const tooltipSpan = document.createElement("span");
           tooltipSpan.className = "tooltip-text";
           tooltipSpan.textContent = tooltipText;
-          skillPara.appendChild(document.createTextNode(skillText));
+          skillPara.innerHTML = skillText;
           skillPara.appendChild(tooltipSpan);
         } else {
-          skillPara.textContent = skillText;
+          skillPara.innerHTML = skillText;
         }
 
         skillDiv.appendChild(skillTitle);

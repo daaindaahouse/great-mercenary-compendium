@@ -14,16 +14,84 @@ h1 {
   color: #2c3e50;
 }
 
+.back-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 15px;
+  background-color: #fff;
+  border: 1px solid #2196F3;
+  border-radius: 5px;
+  color: #2196F3;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: all 0.2s;
+}
+
+.back-button:hover {
+  background-color: #E3F2FD;
+}
+
+.filters-container {
+  margin: 15px auto;
+  max-width: 700px;
+}
+
 .filters {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin: 15px auto;
   padding: 8px;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+}
+
+.tag-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  margin: 0 auto;
   max-width: 700px;
+}
+
+.tag-button {
+  padding: 6px 12px;
+  border: 1px solid #2196F3;
+  border-radius: 4px;
+  background-color: #E3F2FD;
+  font-size: 0.85em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tag-button:hover {
+  background-color: #BBDEFB;
+}
+
+.tag-button.active {
+  opacity: 1;
+}
+
+.tag-button:not(.active):not(.control) {
+  opacity: 0.4;
+}
+
+.tag-button.control {
+  background-color: #fff;
+  border: 1px solid #2196F3;
+  color: #2196F3;
+}
+
+.tag-button.control:hover {
+  background-color: #E3F2FD;
 }
 
 .filters label {
@@ -164,6 +232,11 @@ h1 {
   margin: 0;
   font-size: 0.9em;
   position: relative;
+}
+
+.skill p strong {
+  color: #F44336;
+  font-weight: bold;
 }
 
 .skill p.has-tooltip {

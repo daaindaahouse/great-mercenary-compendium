@@ -1,72 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>The Great Mercenary Compendium</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>LG Tools</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f2f5;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 3em;
+            margin: 40px 0;
+        }
+        .nav-links {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .nav-links a {
+            display: block;
+            padding: 10px;
+            color: #2196F3;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: background-color 0.2s;
+        }
+        .nav-links a:hover {
+            background-color: #E3F2FD;
+            border-radius: 5px;
+        }
+        .text-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-  <h1>The Great Mercenary Compendium</h1>
-
-<div class="filters">
-  <label for="attackType">Attack Type:</label>
-  <select id="attackType"></select>
-
-  <label for="subclass">Subclass:</label>
-  <select id="subclass"></select>
-
-  <button id="resetFilters">Reset Filters</button>
-</div>
-
-<div class="factions-container">
-  <div class="faction-box" id="Peacekeeper">
-    <h2>Peacekeepers</h2>
-    <div class="merc-list" id="list-Peacekeeper"></div>
-  </div>
-
-  <div class="faction-box" id="Freemen">
-    <h2>Freemen</h2>
-    <div class="merc-list" id="list-Freemen"></div>
-  </div>
-
-  <div class="faction-box" id="Syndicate">
-    <h2>Syndicate</h2>
-    <div class="merc-list" id="list-Syndicate"></div>
-  </div>
-</div>
-
-  <div class="mercenary-list" id="mercList"></div>
-
-  <div class="mercenary-info" id="mercInfo">
-    <div class="merc-info-grid">
-      <div class="merc-info-left">
-        <h2 id="mercName">Select a mercenary</h2>
-        <div class="level-controls">
-          <div>
-            <label for="reboot">Reboot:</label>
-            <select id="reboot"></select>
-          </div>
-          <div>
-            <label for="level">Level:</label>
-            <select id="level"></select>
-          </div>
-        </div>
-        <div id="stats"></div>
-        <div id="skillsContainer"></div>
-      </div>
-      <div class="merc-info-right">
-        <h3>Description</h3>
-        <p id="mercDescription"></p>
-        <h3>Summary</h3>
-        <p id="mercSummary"></p>
-        <h3>Tips and Tricks</h3>
-        <p id="mercTips"></p>
-        <h3 id="relationshipHeader" style="display: none">Relationship Information</h3>
-        <p id="mercRelationships"></p>
-      </div>
+    <h1>LG Tools</h1>
+    
+    <div class="nav-links">
+        <a href="compendium.html">Mercenary Compendium</a>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <div class="text-box">
+        <p>Filler text</p>
+    </div>
 </body>
 </html>
